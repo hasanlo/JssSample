@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createUseStyles } from "react-jss";
+import * as vars from "./variables.scss";
+import "./index.scss";
+
+const useStyles = createUseStyles({
+  myButton: {
+    color: vars.buttonTextColor,
+    margin: {
+      top: 5,
+      right: 0,
+      bottom: 0,
+      left: "1rem"
+    },
+    "& span": {
+      fontWeight: "bold"
+    }
+  },
+  myLabel: {
+    fontStyle: "italic"
+  }
+});
+
+const Button = ({ children }) => {
+  const classes = useStyles();
+  return (
+    <button className={classes.myButton}>
+      <span className={classes.myLabel}>{children}</span>
+    </button>
+  );
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <Button>Submit</Button>;
 }
 
 export default App;

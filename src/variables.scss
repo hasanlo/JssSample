@@ -1,0 +1,6 @@
+$buttonTextColor: #c6538c;
+
+// using scss variable in jss
+:export {
+  buttonTextColor: $buttonTextColor;
+}
